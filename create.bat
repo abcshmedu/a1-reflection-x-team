@@ -1,0 +1,1 @@
+mvn archetype:generate -DinteractiveMode=false -DgroupId=edu.hm.swa -DartifactId=projekt_1 -DpackageName=edu.hm.cs.swa.projekt_1 -Dpackage=edu.hm.cs.swa.projekt_1
