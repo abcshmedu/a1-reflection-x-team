@@ -24,7 +24,7 @@ public class Renderer {
 
                 field.setAccessible(true);
 
-                builder.append(field.getName() + " (Type " + field.getType().getCanonicalName() + ") ");
+                builder.append(field.getName()).append(" (Type ").append(field.getType().getCanonicalName()).append(") ");
 
                 try {
                     /* ****************************************************/
@@ -57,22 +57,16 @@ public class Renderer {
                 } catch (IllegalAccessException eae) {
                     builder.append("no access");
                 } catch (ClassNotFoundException e) {
-                    // TODO Auto-generated catch block
                     builder.append("no renderer class found");
                 } catch (InstantiationException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 } catch (IllegalArgumentException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 } catch (NoSuchMethodException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 } catch (SecurityException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
 
