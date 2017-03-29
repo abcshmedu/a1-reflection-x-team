@@ -4,6 +4,7 @@ package edu.hm.cs.swa.projekt_1;
 import java.util.Date;
 
 public class SomeClass {
+	
 	@RenderMe
 	private int foo;
 	@RenderMe(with = "edu.hm.renderer.ArrayRenderer")
