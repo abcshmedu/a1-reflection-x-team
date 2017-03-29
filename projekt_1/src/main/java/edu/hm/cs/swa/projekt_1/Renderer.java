@@ -2,6 +2,7 @@ package edu.hm.cs.swa.projekt_1;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 
 public class Renderer {
 
@@ -13,7 +14,7 @@ public class Renderer {
 
     public String render() {
 
-        StringBuilder builder = new StringBuilder("Instance of " + o.getClass().getCanonicalName() + "\n");
+        StringBuilder builder = new StringBuilder("Instance of " + o.getClass().getCanonicalName() + ":\n");
 
         for (Field field : this.o.getClass().getDeclaredFields()) {
 
@@ -23,15 +24,15 @@ public class Renderer {
 
                 field.setAccessible(true);
 
-                builder.append(field.getName() + "(Type " + field.getType().getCanonicalName() + ") ");
+                builder.append(field.getName() + " (Type " + field.getType().getCanonicalName() + ") ");
 
                 try {
                     /* ****************************************************/
                     /* primitive datentypen*/
                     if (field.getType().equals(int.class)) {
                         builder.append(field.getInt(o));
-                    } else if (field.getType().equals(boolean.class)) {
-                        builder.append(field.getBoolean(o));
+                    } else if (field.getType().equals(Date.class)) {
+                        builder.append(field.get(o));
                     } else {
 
 						/* ****************************************************/
