@@ -4,6 +4,7 @@ package edu.hm.cs.swa.projekt_1;
  * Created by christian on 29.03.17.
  */
 
+import edu.hm.SomeClass;
 import org.junit.Before;
 import org.junit.Test;
 
