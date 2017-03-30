@@ -14,8 +14,14 @@ public class ArrayRenderer implements AnnotationRenderer {
         StringBuilder result = new StringBuilder("[");
 
         try {
-            for (int i = 0; i < Array.getLength(field.get(o)); i++)
-                result.append(Array.getInt(field.get(o), i)).append(", ");
+            for (int i = 0; i < Array.getLength(field.get(o)); i++) {
+                if (i > 0)
+                    result.append(", ");
+                if (field.getType().equals(int[].class))
+                    result.append(Array.getInt(field.get(o), i));
+                else if (field.getType().equals(char[].class))
+                    result.append(Array.getChar(field.get(o), i));
+            }
         } catch (IllegalAccessException e) {
             result.append("no access");
         }

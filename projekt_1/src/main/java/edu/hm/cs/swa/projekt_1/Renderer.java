@@ -31,7 +31,9 @@ public class Renderer {
                     /* primitive datentypen*/
                     if (field.getType().equals(int.class)) {
                         builder.append(field.getInt(o));
-                    } else if (field.getType().equals(Date.class)) {
+                    } else if (field.getType().equals(char.class)) {
+                        builder.append(field.getChar(o));
+                    } else if (field.getType().equals(Date.class) || field.getType().equals(String.class)) {
                         builder.append(field.get(o));
                     } else {
 
