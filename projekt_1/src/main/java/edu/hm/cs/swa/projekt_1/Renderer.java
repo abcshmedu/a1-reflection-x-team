@@ -2,7 +2,6 @@ package edu.hm.cs.swa.projekt_1;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Date;
 
 public class Renderer {
 
@@ -33,8 +32,6 @@ public class Renderer {
                         builder.append(field.getInt(o));
                     } else if (field.getType().equals(char.class)) {
                         builder.append(field.getChar(o));
-                    } else if (field.getType().equals(Date.class) || field.getType().equals(String.class)) {
-                        builder.append(field.get(o));
                     } else {
 
 						/* ****************************************************/
@@ -42,20 +39,15 @@ public class Renderer {
                         String customRenderer = annotation.with();
 
                         if (customRenderer.length() > 0) {
-
                             Class<?> renderer = Class.forName(customRenderer);
-
                             Object renderObj = renderer.getConstructor().newInstance();
-
                             if (renderObj instanceof AnnotationRenderer) {
                                 builder.append(((AnnotationRenderer) renderObj).render(field, o));
                             }
-
-
+                        } else {
+                            builder.append(field.get(o));
                         }
-
                     }
-
                 } catch (IllegalAccessException eae) {
                     builder.append("no access");
                 } catch (ClassNotFoundException e) {
