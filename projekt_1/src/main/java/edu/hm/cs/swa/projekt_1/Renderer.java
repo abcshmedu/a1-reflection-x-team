@@ -52,17 +52,9 @@ public class Renderer {
                     builder.append("no access");
                 } catch (ClassNotFoundException e) {
                     builder.append("no renderer class found");
-                } catch (InstantiationException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
-                } catch (IllegalArgumentException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                } catch (NoSuchMethodException e) {
-                    e.printStackTrace();
-                } catch (SecurityException e) {
-                    e.printStackTrace();
-                }
+                } 
 
                 builder.append("\n");
 

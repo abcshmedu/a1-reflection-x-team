@@ -6,6 +6,8 @@ package edu.hm.cs.swa.projekt_1;
 
 import edu.hm.SomeClass;
 import edu.hm.SomeClass1;
+import edu.hm.cs.swa.projek_1.resources.SomeRenderTestClass;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,5 +41,20 @@ public class RendererTest {
                 "varChar (Type char) t\n" +
                 "array (Type char[]) [@, a, ], ., w]\n" + "" +
                 "test (Type java.lang.String) testString\n", renderer2.render());
+    }
+    
+    @Test
+    public void testRenderingErrorHandling() throws Exception {
+       
+    	Renderer renderer = new Renderer(new SomeRenderTestClass());
+    	
+    	assertEquals("Instance of edu.hm.cs.swa.projek_1.resources.SomeRenderTestClass:\n"
+    			+ "array (Type float[]) [, ]\n"
+    			+ "wrongRenderer (Type int[]) \n"
+    			+ "wrongRendererPackage (Type int[]) no renderer class found\n"
+    			+ "", renderer.render());
+    
+    
+    
     }
 }
